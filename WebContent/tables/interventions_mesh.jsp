@@ -2,7 +2,7 @@
 <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 <script>
-$.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
+$.getJSON("feeds/interventions_mesh.jsp?mode=${param.mode}", function(data){
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -16,7 +16,7 @@ $.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
 	var table = document.createElement("table");
 	table.className = 'table table-hover';
 	table.style.width = '100%';
-	table.id="intervention_table_inner";
+	table.id="intervention_mesh_table_inner";
 
 	var header= table.createTHead();
 	var header_row = header.insertRow(0); 
@@ -27,13 +27,13 @@ $.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
 		header_row.appendChild(th);
 	}
 
-	var divContainer = document.getElementById("intervention_table");
-	divContainer.innerHTML = "<h3>Intervention Type: ${param.mode}</h3>";
+	var divContainer = document.getElementById("intervention_mesh_table");
+	divContainer.innerHTML = "";
 	divContainer.appendChild(table);
 
 	var data = json['rows'];
 
-	$('#intervention_table_inner').DataTable( {
+	$('#intervention_mesh_table_inner').DataTable( {
     	data: data,
        	paging: true,
     	pageLength: 10,
@@ -41,10 +41,10 @@ $.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
     	order: [[1, 'desc']],
      	columns: [
         	{
-        		data: 'intervention_name',
+        		data: 'intervention_mesh_name',
         		orderable: true,
         		render: function ( data, type, row ) {
-        			return '<a onclick="intervention_display(\''+ row.intervention_name + '\');"><span style="color: #337ab7">' + row.intervention_name + '</span></a>';
+        			return '<a onclick="intervention_mesh_display(\''+ row.intervention_mesh_name + '\');"><span style="color: #337ab7">' + row.intervention_mesh_name + '</span></a>';
              		}
              },
         	{ data: 'count', visible: true, orderable: true },

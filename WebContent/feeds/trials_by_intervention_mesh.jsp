@@ -3,7 +3,7 @@
 
 <sql:query var="trials" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(foo))
-	from (select  id,nct_id,official_title from n3c_trials.study natural join n3c_trials.intervention where intervention_name =  ?) as foo;
+	from (select  id,nct_id,official_title from n3c_trials.study natural join n3c_trials.intervention_mesh where intervention_mesh_term =  ?) as foo;
 	<sql:param>${param.mode}</sql:param>
 </sql:query>
 {

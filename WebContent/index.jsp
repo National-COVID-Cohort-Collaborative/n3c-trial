@@ -41,7 +41,9 @@ table.dataTable thead .sorting_asc {
 		<ul class="nav nav-tabs" style="font-size: 16px;">
 			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 			<li><a data-toggle="tab" href="#conditions">Conditions</a></li>
+			<li><a data-toggle="tab" href="#conditions_mesh">Conditions (MeSH)</a></li>
 			<li><a data-toggle="tab" href="#interventions">Interventions</a></li>
+			<li><a data-toggle="tab" href="#interventions_mesh">Interventions (MeSH)</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -53,8 +55,16 @@ table.dataTable thead .sorting_asc {
 				<jsp:include page="graphs/conditions.jsp" flush="true" />
 			</div>
 
+			<div class="tab-pane fade" id="conditions_mesh">
+				<jsp:include page="graphs/conditions_mesh.jsp" flush="true" />
+			</div>
+
 			<div class="tab-pane fade" id="interventions">
 				<jsp:include page="graphs/interventions.jsp" flush="true" />
+			</div>
+
+			<div class="tab-pane fade" id="interventions_mesh">
+				<jsp:include page="graphs/interventions_mesh.jsp" flush="true" />
 			</div>
 		</div>
 

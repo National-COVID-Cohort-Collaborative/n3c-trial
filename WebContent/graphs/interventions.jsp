@@ -3,20 +3,20 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <script type="text/javascript">
-	function render(mode) {
+	function intervention_render(mode) {
 		d3.html("tables/interventions.jsp?mode="+mode, function(fragment) {
-			var divContainer = document.getElementById("target_table");
+			var divContainer = document.getElementById("intervention_target_table");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
 	}
 
-	function display(mode) {
+	function intervention_display(mode) {
 		var divContainer = document.getElementById("intervention_trials_header");
 		divContainer.innerHTML = mode+" Trials";
 		d3.html("tables/trials_by_intervention.jsp?mode="+mode, function(fragment) {
 			var divContainer = document.getElementById("intervention_trials");
-			divContainer.innerHTML = "";
+			divContainer.innerHTML = "<div id='intervention_detail_table'></div>";
 			divContainer.append(fragment);
 		});
 	}
@@ -24,7 +24,7 @@
 </script>
 
 <form action="index.jsp">
-	<label for="table">Choose an Intervention Type:</label> <select name="mode" id="mode" onchange="render(mode.value)">
+	<label for="table">Choose an Intervention Type:</label> <select name="mode" id="mode" onchange="intervention_render(mode.value)">
 		<option value="Drug"	<c:if test="${empty param.mode ||  param.mode == 'Drug' }">selected</c:if>>Drug</option>
 		<option value="Other" <c:if test="${param.mode == 'Other' }">selected</c:if>>Other</option>
 		<option value="Biological" <c:if test="${param.mode == 'Biological' }">selected</c:if>>Biological</option>
@@ -44,13 +44,13 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Interventions</div>
 			<div class="panel-body">
-<div id="target_table">
+<div id="intervention_target_table">
 <jsp:include page="../tables/interventions.jsp" flush="true">
 	<jsp:param value="Drug" name="mode"/>
 </jsp:include>
 </div>
 
-<div id="table" style="overflow: scroll;">&nbsp;</div>
+<div id="intervention_table" style="overflow: scroll;">&nbsp;</div>
 <div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
 		</div>
