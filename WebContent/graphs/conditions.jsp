@@ -21,15 +21,16 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Conditions</div>
 			<div class="panel-body">
-<div id="condition_target_table">
-<jsp:include page="../tables/conditions.jsp" flush="true">
-	<jsp:param value="COVID-19" name="mode"/>
-</jsp:include>
-</div>
+				<div id="condition_target_table">
+					<jsp:include page="../tables/conditions.jsp" flush="true">
+						<jsp:param value="COVID-19" name="mode" />
+					</jsp:include>
+				</div>
 
-<div id="condition_table" style="overflow: scroll;">&nbsp;</div>
-<div id="op_table" style="overflow: scroll;">&nbsp;</div>
+				<div id="condition_table" style="overflow: scroll;">&nbsp;</div>
+				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
+			<div class="panel-footer"><a href="feeds/conditions.jsp">Export this list as JSON</a></div>
 		</div>
 	</div>
 	<div class="col-sm-7">

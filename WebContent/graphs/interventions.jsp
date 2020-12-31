@@ -4,6 +4,8 @@
 
 <script type="text/javascript">
 	function intervention_render(mode) {
+		var footer = document.getElementById("intervention-panel-footer");
+		footer.innerHTML = "<a href=\"feeds/interventions.jsp?mode="+mode+"\">Export this list as JSON</a>";
 		d3.html("tables/interventions.jsp?mode="+mode, function(fragment) {
 			var divContainer = document.getElementById("intervention_target_table");
 			divContainer.innerHTML = "";
@@ -44,15 +46,16 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Interventions</div>
 			<div class="panel-body">
-<div id="intervention_target_table">
-<jsp:include page="../tables/interventions.jsp" flush="true">
-	<jsp:param value="Drug" name="mode"/>
-</jsp:include>
-</div>
+				<div id="intervention_target_table">
+					<jsp:include page="../tables/interventions.jsp" flush="true">
+						<jsp:param value="Drug" name="mode" />
+					</jsp:include>
+				</div>
 
-<div id="intervention_table" style="overflow: scroll;">&nbsp;</div>
-<div id="op_table" style="overflow: scroll;">&nbsp;</div>
+				<div id="intervention_table" style="overflow: scroll;">&nbsp;</div>
+				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
+			<div class="panel-footer" id="intervention-panel-footer"><a href="feeds/interventions.jsp?mode=Drug">Export this list as JSON</a></div>
 		</div>
 	</div>
 	<div class="col-sm-7">

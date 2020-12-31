@@ -21,15 +21,16 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Interventions (MeSH)</div>
 			<div class="panel-body">
-<div id="intervention_mesh_target_table">
-<jsp:include page="../tables/interventions_mesh.jsp" flush="true">
-	<jsp:param value="Drug" name="mode"/>
-</jsp:include>
-</div>
+				<div id="intervention_mesh_target_table">
+					<jsp:include page="../tables/interventions_mesh.jsp" flush="true">
+						<jsp:param value="Drug" name="mode" />
+					</jsp:include>
+				</div>
 
-<div id="intervention_mesh_table" style="overflow: scroll;">&nbsp;</div>
-<div id="op_table" style="overflow: scroll;">&nbsp;</div>
+				<div id="intervention_mesh_table" style="overflow: scroll;">&nbsp;</div>
+				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
+			<div class="panel-footer"><a href="feeds/interventions_mesh.jsp?mode=Drug">Export this list as JSON</a></div>
 		</div>
 	</div>
 	<div class="col-sm-7">

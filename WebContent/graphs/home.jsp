@@ -3,7 +3,24 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Summary</div>
+			<div class="panel-body">
+				<div id="home_summary">
+				<sql:query var="elements" dataSource="jdbc/N3CCohort">
+					select * from 
+						(select to_char(count(*), '999,999,999') as study_count from n3c_trials.study) as study_count
+				</sql:query>
+				
+				<c:forEach items="${elements.rows}" var="row" varStatus="rowCounter">
+					<p><b># of COVID-19-relevant trials</b>: ${row.study_count}</p>
+				</c:forEach>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Most Common Conditions (MeSH)</div>
 			<div class="panel-body">
@@ -11,7 +28,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-4">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Intervention Type</div>
 			<div class="panel-body">
