@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<div id="target_table"></div>
-
 <script type="text/javascript">
 	function render(mode) {
 		d3.html("tables/interventions.jsp?mode="+mode, function(fragment) {
@@ -12,6 +10,17 @@
 			divContainer.append(fragment);
 		});
 	}
+
+	function display(mode) {
+		var divContainer = document.getElementById("intervention_trials_header");
+		divContainer.innerHTML = mode+" Trials";
+		d3.html("tables/trials_by_intervention.jsp?mode="+mode, function(fragment) {
+			var divContainer = document.getElementById("intervention_trials");
+			divContainer.innerHTML = "";
+			divContainer.append(fragment);
+		});
+	}
+
 </script>
 
 <form action="index.jsp">
@@ -30,9 +39,31 @@
 	</select>
 </form>
 
+<div class="row">
+	<div class="col-sm-5">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Interventions</div>
+			<div class="panel-body">
+<div id="target_table">
 <jsp:include page="../tables/interventions.jsp" flush="true">
 	<jsp:param value="Drug" name="mode"/>
 </jsp:include>
+</div>
 
 <div id="table" style="overflow: scroll;">&nbsp;</div>
 <div id="op_table" style="overflow: scroll;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-7">
+		<div class="panel panel-primary">
+			<div class="panel-heading" id="intervention_trials_header">Trials</div>
+			<div class="panel-body">
+				<div id="intervention_trials">
+					<p>Select an intervention on the left to see the related trials.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

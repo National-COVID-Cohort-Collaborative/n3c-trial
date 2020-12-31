@@ -14,6 +14,7 @@ WebContent/WEB-INF/web.xml -text
 WebContent/feeds/intervention_type.jsp -text
 WebContent/feeds/interventions.jsp -text
 WebContent/feeds/top_conditions.jsp -text
+WebContent/feeds/trials_by_intervention.jsp -text
 WebContent/footer.jsp -text
 WebContent/graph_support/pieChart.jsp -text
 WebContent/graph_support/scatterplot.jsp -text
@@ -32,4 +33,5 @@ WebContent/resources/d3.v3.min.js -text
 WebContent/resources/d3.v4.min.js -text
 WebContent/resources/n3c_login_style.css -text
 WebContent/tables/interventions.jsp -text
+WebContent/tables/trials_by_intervention.jsp -text
 /pom.xml -text

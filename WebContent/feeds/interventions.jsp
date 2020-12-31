@@ -8,7 +8,6 @@
 </sql:query>
 {
     "headers": [
-        {"value":"intervention_type", "label":"Intervention Type"},
         {"value":"intervention_name", "label":"Intervention Name"},
         {"value":"count", "label":"Count"}
     ],

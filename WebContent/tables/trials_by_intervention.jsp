@@ -2,7 +2,7 @@
 <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 <script>
-$.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
+$.getJSON("feeds/trials_by_intervention.jsp?mode=${param.mode}", function(data){
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -27,8 +27,8 @@ $.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
 		header_row.appendChild(th);
 	}
 
-	var divContainer = document.getElementById("table");
-	divContainer.innerHTML = "<h3>Intervention Type: ${param.mode}</h3>";
+	var divContainer = document.getElementById("detail_table");
+	divContainer.innerHTML = "<h3>Intervention: ${param.mode}</h3>";
 	divContainer.appendChild(table);
 
 	var data = json['rows'];
@@ -40,14 +40,8 @@ $.getJSON("feeds/interventions.jsp?mode=${param.mode}", function(data){
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[1, 'desc']],
      	columns: [
-        	{
-        		data: 'intervention_name',
-        		orderable: true,
-        		render: function ( data, type, row ) {
-        			return '<a onclick="display(\''+ row.intervention_name + '\');">' + row.intervention_name + '</a>';
-             		}
-             },
-        	{ data: 'count', visible: true, orderable: true },
+        	{ data: 'id', visible: true, orderable: true },
+        	{ data: 'official_name', visible: true, orderable: true }
     	]
 	} );
 
