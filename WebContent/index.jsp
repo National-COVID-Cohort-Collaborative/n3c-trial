@@ -14,6 +14,8 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<script src="resources/d3.v3.min.js"></script>
+
 <style type="text/css" media="all">
 @import "resources/n3c_login_style.css";
 </style>

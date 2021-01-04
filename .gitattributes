@@ -24,7 +24,6 @@ WebContent/feeds/trials_by_intervention_mesh.jsp -text
 WebContent/footer.jsp -text
 WebContent/graph_support/pieChart.jsp -text
 WebContent/graph_support/scatterplot.jsp -text
-WebContent/graph_support/smallVerticalBarChart.jsp -text
 WebContent/graph_support/verticalBarChart.jsp -text
 WebContent/graphs/conditions.jsp -text
 WebContent/graphs/conditions_mesh.jsp -text
