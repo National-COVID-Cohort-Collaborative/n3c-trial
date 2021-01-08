@@ -47,4 +47,6 @@ WebContent/tables/trials_by_condition.jsp -text
 WebContent/tables/trials_by_condition_mesh.jsp -text
 WebContent/tables/trials_by_intervention.jsp -text
 WebContent/tables/trials_by_intervention_mesh.jsp -text
+WebContent/umls/prune.jsp -text
+WebContent/umls/submit_suppress.jsp -text
 /pom.xml -text
